@@ -127,3 +127,47 @@ df_final = df_final.rename(columns={
 # df_final.to_excel(result, index=False)
 # print(f"Excel file saved to {result}")
 
+
+#output 2
+
+# Create overcharged, undercharged, and correctly charged orders
+overcharged = df_final["Expected charges (Rs.)"] < df_final["Charged billed by courier"]
+undercharged = df_final["Expected charges (Rs.)"] > df_final["Charged billed by courier"]
+correctly_charged = df_final["Expected charges (Rs.)"] == df_final["Charged billed by courier"]
+
+ # Calculas and amountste count
+c1=overcharged.value_counts()
+overcharged_count=(c1[True])
+print(overcharged_count)
+c2=undercharged.value_counts()
+undercharged_count=(c2[True])
+print(undercharged_count)
+c3=correctly_charged.value_counts()
+correctly_charged_count=(c3[True])
+print(correctly_charged_count)
+
+total_overcharge_amount = df_final.loc[overcharged, "Expected charges (Rs.)"].sum()
+print(total_overcharge_amount)
+
+total_undercharged_amount=df_final.loc[undercharged,"Expected charges (Rs.)"].sum()
+print(round(total_undercharged_amount,2))
+
+
+total_correctly_charged_amount=df_final.loc[correctly_charged,"Expected charges (Rs.)"].sum()
+print(round(total_correctly_charged_amount,2))
+
+# undercharged_rows = df_final.loc[undercharged].index
+# print(undercharged_rows)
+
+
+
+# Create a summary table
+summary_table = pd.DataFrame({
+    'Count': [correctly_charged_count, overcharged_count, undercharged_count],
+    'Amount (Rs.)': [total_correctly_charged_amount,total_overcharge_amount,total_undercharged_amount]
+}, index=['Total Orders - Correctly Charged', 'Total Orders - Over Charged', 'Total Orders - Under Charged'])
+
+# Print the summary table
+print(summary_table)
+
+
