@@ -80,12 +80,34 @@ import math
 def Applicable(tw, ws):
     if tw <= ws:
         aw = ws
+        count = 0  # Set count to 0 when no additional slabs are needed
     else:
         slabs_add = math.ceil((tw - ws) / ws)
+        count = slabs_add
         aw = ws + (slabs_add * ws)
-    return aw
+    return aw, count
 
-# Apply the Applicable function to create a new column
-df["Applicable Weight"] = df.apply(lambda row: Applicable(row['Total Weight(kg)'], row['Weight Slabs']), axis=1)
+# Apply the Applicable function to create new columns
+df[["Applicable Weight", "count"]] = df.apply(lambda row: pd.Series(Applicable(row['Total Weight(kg)'], row['Weight Slabs'])), axis=1)
 
-print(df.tail(10))
+import pandas as pd
+
+def charges(type, fc, fac, rto, rtoa, count):
+    if count == 0 and type == "Forward charges":
+        charge = fc
+    elif count == 0 and type == "Forward and RTO charges":
+        charge = fc + rto
+    elif count > 0 and type == "Forward charges":
+        charge = fc + (count * fac)
+    elif count > 0 and type == "Forward and RTO charges":
+        charge = fc + (count * fac) + rto + (count * rtoa)
+    else:
+        charge = 0
+    return charge
+
+# Apply the charges function to create a new column
+df["charges"] = df.apply(lambda row: charges(row["Type of Shipment"], row["Forward Fixed Charge"], row["Forward Additional Weight Slab Charge"], row["RTO Fixed Charge"], row["RTO Additional Weight Slab Charge"], row["count"]), axis=1)
+
+# Print the DataFrame to check the result
+print(df)
+
