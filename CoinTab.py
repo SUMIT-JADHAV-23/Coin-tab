@@ -36,6 +36,23 @@ order_sku_data = pd.merge(order_report_data, sku_master_data, on='SKU', how='inn
 
 # Add a new column 'Total Weight' by multiplying 'Weight (g)' and 'Order Qty'
 order_sku_data['Total Weight(g)'] = order_sku_data['Weight (g)'] * order_sku_data['Order Qty']
-print(order_sku_data)
+# print(order_sku_data)
 
 
+Invoicer=r"E:\Study sumit\Interviwe Assignments\CoinTab\Courier Company - Invoice.xlsx"
+Invoicer_data=pd.read_excel(Invoicer)
+# print(Invoicer_data)
+# Merge the dataframes based on the common identifier (Order ID)
+# print(order_sku_data.dtypes)
+# print(Invoicer_data.dtypes)
+
+order_sku_data=order_sku_data.rename(columns={'ExternOrderNo':"Order ID"})
+
+# print("order_sku_data columns:", order_sku_data.columns)
+# print("Invoicer_data columns:", Invoicer_data.columns)
+
+data = pd.merge(order_sku_data, Invoicer_data, on="Order ID", how="inner")
+print(data)
+print(data.shape)
+print(data.dtypes)
+print(data.isnull().sum())
