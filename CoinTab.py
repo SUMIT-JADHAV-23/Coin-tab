@@ -5,12 +5,33 @@ order_report = r"E:\Study sumit\Interviwe Assignments\CoinTab\Company X - Order 
 pincode_zones=r"E:\Study sumit\Interviwe Assignments\CoinTab\Company X - Pincode Zones.xlsx"
 sku_master=r"E:\Study sumit\Interviwe Assignments\CoinTab\Company X - SKU Master.xlsx"
 
-ord = pd.read_excel(order_report)
-pzd= pd.read_excel(pincode_zones)
-smd= pd.read_excel(sku_master)
-print(ord)
-print(pzd)
-print(smd)
+order_report_data = pd.read_excel(order_report)
+pincode_zones_data= pd.read_excel(pincode_zones)
+sku_master_data= pd.read_excel(sku_master)
+# print(order_report_data)
+# print(pincode_zones_data)
+# print(sku_master_data)
 
+
+# #check the shape and null values
+print(order_report_data.shape)
+print(pincode_zones_data.shape)
+print(sku_master_data.shape)
+print(order_report_data.isnull().sum())
+print(pincode_zones_data.isnull().sum())
+print(sku_master_data.isnull().sum())
+
+
+# Display data types to check if they match
+print(order_report_data.dtypes)
+print(sku_master_data.dtypes)
+print(pincode_zones_data.dtypes)
+
+
+# Merge the dataframes based on the common identifier (sku)
+order_sku_data = pd.merge(order_report_data, sku_master_data, on='SKU', how='inner')
+print(order_sku_data)
+print(order_sku_data.shape)
+print(order_sku_data.isnull().sum())
 
 
