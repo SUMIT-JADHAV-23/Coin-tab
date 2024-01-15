@@ -34,4 +34,3 @@ print(order_sku_data)
 print(order_sku_data.shape)
 print(order_sku_data.isnull().sum())
 
-
