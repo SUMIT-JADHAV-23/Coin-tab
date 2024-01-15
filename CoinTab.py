@@ -52,7 +52,18 @@ order_sku_data=order_sku_data.rename(columns={'ExternOrderNo':"Order ID"})
 # print("Invoicer_data columns:", Invoicer_data.columns)
 
 data = pd.merge(order_sku_data, Invoicer_data, on="Order ID", how="inner")
-print(data)
-print(data.shape)
-print(data.dtypes)
-print(data.isnull().sum())
+# print(data)
+# print(data.shape)
+# print(data.dtypes)
+# print(data.isnull().sum())
+
+Rates=r"E:\Study sumit\Interviwe Assignments\CoinTab\Courier Company - Rates.xlsx"
+Rates_data=pd.read_excel(Rates)
+# print(Rates_data)
+# print(Rates_data.dtypes)
+
+Rates_data["Zone"]=Rates_data["Zone"].str.lower()
+
+df=pd.merge(data,Rates_data, on="Zone", how="inner")
+
+print(df)
