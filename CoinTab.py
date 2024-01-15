@@ -108,6 +108,22 @@ def charges(type, fc, fac, rto, rtoa, count):
 # Apply the charges function to create a new column
 df["charges"] = df.apply(lambda row: charges(row["Type of Shipment"], row["Forward Fixed Charge"], row["Forward Additional Weight Slab Charge"], row["RTO Fixed Charge"], row["RTO Additional Weight Slab Charge"], row["count"]), axis=1)
 
-# Print the DataFrame to check the result
-print(df)
+# output 1
+df_final = df.loc[:, ["Order ID", "AWB Code", "Total Weight(kg)", "Applicable Weight", "Charged Weight", "Weight Slabs", "Zone", "charges", "Billing Amount (Rs.)"]]
+
+df_final = df_final.rename(columns={
+    "Order ID": "Order ID",
+    "AWB Code": "AWSNumber",
+    "Total Weight(kg)": "Total Weight as per comp",
+    "Applicable Weight": "Total Weight as per comp",
+    "Charged Weight": "Total Weight as per courier company",
+    "Weight Slabs": "Weight slab charged by courier",
+    "Zone": "Delivery Zone",
+    "charges": "Expected charges (Rs.)",
+    "Billing Amount (Rs.)": "Charged billed by courier"
+})
+#
+# result = r"E:\Study sumit\Interviwe Assignments\CoinTab\result_file.xlsx"
+# df_final.to_excel(result, index=False)
+# print(f"Excel file saved to {result}")
 
