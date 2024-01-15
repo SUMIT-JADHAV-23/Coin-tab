@@ -14,23 +14,28 @@ sku_master_data= pd.read_excel(sku_master)
 
 
 # #check the shape and null values
-print(order_report_data.shape)
-print(pincode_zones_data.shape)
-print(sku_master_data.shape)
-print(order_report_data.isnull().sum())
-print(pincode_zones_data.isnull().sum())
-print(sku_master_data.isnull().sum())
+# print(order_report_data.shape)
+# print(pincode_zones_data.shape)
+# print(sku_master_data.shape)
+# print(order_report_data.isnull().sum())
+# print(pincode_zones_data.isnull().sum())
+# print(sku_master_data.isnull().sum())
 
 
 # Display data types to check if they match
-print(order_report_data.dtypes)
-print(sku_master_data.dtypes)
-print(pincode_zones_data.dtypes)
+# print(order_report_data.dtypes)
+# print(sku_master_data.dtypes)
+# print(pincode_zones_data.dtypes)
 
 
 # Merge the dataframes based on the common identifier (sku)
 order_sku_data = pd.merge(order_report_data, sku_master_data, on='SKU', how='inner')
+# print(order_sku_data)
+# print(order_sku_data.shape)
+# print(order_sku_data.isnull().sum())
+
+# Add a new column 'Total Weight' by multiplying 'Weight (g)' and 'Order Qty'
+order_sku_data['Total Weight(g)'] = order_sku_data['Weight (g)'] * order_sku_data['Order Qty']
 print(order_sku_data)
-print(order_sku_data.shape)
-print(order_sku_data.isnull().sum())
+
 
