@@ -1,6 +1,4 @@
-# import pandas as pd
-# df=pd.read_excel(r"E:\Study sumit\Interviwe Assignments\CoinTab\Courier Company - Rates")
-# print(df)
+
 import pandas as pd
 #load Left Hand Side (LHS) Data
 order_report = r"E:\Study sumit\Interviwe Assignments\CoinTab\Company X - Order Report.xlsx"
