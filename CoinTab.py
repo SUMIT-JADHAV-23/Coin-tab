@@ -65,5 +65,27 @@ Rates_data=pd.read_excel(Rates)
 Rates_data["Zone"]=Rates_data["Zone"].str.lower()
 
 df=pd.merge(data,Rates_data, on="Zone", how="inner")
+# print(df)
+# print(df.dtypes)
 
-print(df)
+df["Total Weight(g)"]=df["Total Weight(g)"]/1000
+df["Total Weight(g)"]=df["Total Weight(g)"].round(3)
+
+df.rename(columns={"Total Weight(g)": "Total Weight(kg)"}, inplace=True)
+
+# print(df['Total Weight(kg)'])
+
+import math
+
+def Applicable(tw, ws):
+    if tw <= ws:
+        aw = ws
+    else:
+        slabs_add = math.ceil((tw - ws) / ws)
+        aw = ws + (slabs_add * ws)
+    return aw
+
+# Apply the Applicable function to create a new column
+df["Applicable Weight"] = df.apply(lambda row: Applicable(row['Total Weight(kg)'], row['Weight Slabs']), axis=1)
+
+print(df.tail(10))
