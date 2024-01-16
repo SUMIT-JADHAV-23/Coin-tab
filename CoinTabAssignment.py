@@ -158,10 +158,30 @@ def charges(type, fc, fac, rto, rtoa, count):
 # Apply the charges function to create a new column
 df_main["Expected Charge as per X (Rs.)"] = df_main.apply(lambda row: charges(row["Type of Shipment"], row["Forward Fixed Charge"], row["Forward Additional Weight Slab Charge"], row["RTO Fixed Charge"], row["RTO Additional Weight Slab Charge"], row["count per X"]), axis=1)
 
-print(df_main.dtypes)
+# print(df_main.dtypes)
 df_final=df_main
+# print(df_final)
 
 file_path= r"dffinal.xlsx"
 df_final.to_excel(file_path, index=False)
 print(f"Excel file saved to {file_path}")
 
+df_final.drop(columns=["Customer Pincode",'Type of Shipment','Weight Slabs','Forward Fixed Charge','Forward Additional Weight Slab Charge','RTO Fixed Charge','RTO Additional Weight Slab Charge','count per X'],inplace=True)
+print(df_final.dtypes)
+
+
+df_final = df_final[['Order ID', 'AWB Code', 'Total weight as per X (KG)','Weight slab as per X (KG)','Total weight as per Courier Company (KG)','Weight slab charged by Courier Company (KG)','Delivery Zone as per X','Delivery Zone charged by Courier Company','Expected Charge as per X (Rs.)','Billing Amount (Rs.)']]
+print(df_final.dtypes)
+
+df_final=df_final.rename(columns={"Billing Amount (Rs.)":"Charges Billed by Courier Company (Rs.)"})
+print(df_final.dtypes)
+
+df_final["Difference Between Expected and Billed  (Rs.)"]=df_final["Expected Charge as per X (Rs.)"]-df_final["Charges Billed by Courier Company (Rs.)"]
+print(df_final.dtypes)
+
+# print(df_final["Difference Between Expected and Billed  (Rs.)"])
+
+
+file_path= r"Output Data1.xlsx"
+df_final.to_excel(file_path, index=False)
+print(f"Excel file saved to {file_path}")
