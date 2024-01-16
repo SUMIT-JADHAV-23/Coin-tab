@@ -1,4 +1,5 @@
 import pandas as pd
+import math
 
 order_report = r"E:\Study sumit\Interviwe Assignments\CoinTab\Company X - Order Report.xlsx"
 pincode_zones=r"E:\Study sumit\Interviwe Assignments\CoinTab\Company X - Pincode Zones.xlsx"
@@ -87,6 +88,61 @@ df = pd.merge(df1, df2, on="Order ID", how="inner")
 df=df.rename(columns={'Total Weight(kg)':'Total weight as per X (KG)'})
 df=df.rename(columns={'Charged Weight':"Total weight as per Courier Company (KG)"})
 
-print(df.dtypes)
+# print(df.dtypes)
+
+# file_path= r"E:\Study sumit\Interviwe Assignments\CoinTab\df.xlsx"
+# df.to_excel(file_path, index=False)
+# print(f"Excel file saved to {file_path}")
+
+
+
+
+# calculate wight slab for company
+
+Rates_data["Zone"]=Rates_data["Zone"].str.lower()
+Rates_data1=Rates_data.rename(columns={"Zone":"Delivery Zone as per X"})
+# print(Rates_data1)
+df_company=pd.merge(df,Rates_data1, on="Delivery Zone as per X", how="inner")
+# print(df_company.dtypes)
+
+# calculate weight slab for courier
+Rates_data2=Rates_data.rename(columns={"Zone":"Delivery Zone charged by Courier Company"})
+df_courier=pd.merge(df,Rates_data2, on="Delivery Zone charged by Courier Company", how="inner")
+# print(df_courier.dtypes)
+
+def Applicable(tw, ws):
+    if tw <= ws:
+        aw = ws
+        count = 0  # Set count to 0 when no additional slabs are needed
+    else:
+        slabs_add = math.ceil((tw - ws) / ws)
+        count = slabs_add
+        aw = ws + (slabs_add * ws)
+    return aw, count
+
+# Apply the Applicable function to create new columns
+df_company[["Weight slab as per X (KG)", "count per X"]] = df_company.apply(lambda row: pd.Series(Applicable(row['Total weight as per X (KG)'], row['Weight Slabs'])), axis=1)
+df_courier[["Weight slab charged by Courier Company (KG)", "count per courier"]] = df_courier.apply(lambda row: pd.Series(Applicable(row['Total weight as per Courier Company (KG)'], row['Weight Slabs'])), axis=1)
+# print(df_company)
+# print(df_courier)
+
+selected_column=["Weight slab charged by Courier Company (KG)","Order ID"]
+df_courier1=df_courier[selected_column]
+df_main=pd.merge(df_company,df_courier1,on="Order ID",how="inner")
+# print(df_main.dtypes)
+
+
+df_main=df_main.drop(columns="Customer Pincode")
+print(df_main.dtypes)
+
+df_main = df_main[['Order ID', 'AWB Code', 'Total weight as per X (KG)','Weight slab as per X (KG)','Total weight as per Courier Company (KG)','Weight slab charged by Courier Company (KG)','Delivery Zone as per X','Delivery Zone charged by Courier Company','Billing Amount (Rs.)','Type of Shipment','Weight Slabs','Forward Fixed Charge','Forward Additional Weight Slab Charge','RTO Fixed Charge','RTO Additional Weight Slab Charge','count per X']]
+
+print(df_main.dtypes)
+
+file_path= r"E:\Study sumit\Interviwe Assignments\CoinTab\dfmain.xlsx"
+df_main.to_excel(file_path, index=False)
+print(f"Excel file saved to {file_path}")
+
+
 
 
