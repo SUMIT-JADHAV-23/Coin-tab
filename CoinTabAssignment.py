@@ -38,15 +38,25 @@ total_weight_per_order = order_sku_data.groupby('ExternOrderNo')['Total Weight(k
 
 # print(total_weight_per_order)
 
+# compare zone with courier and company
+data1 = pd.DataFrame({'Customer Pincode': Invoicer_data["Customer Pincode"].unique()})
+data2 = pincode_zones_data
 
-# file_path= r"E:\Study sumit\Interviwe Assignments\CoinTab\total_weight_per_order.xlsx"
-# total_weight_per_order.to_excel(file_path, index=False)
-# print(f"Excel file saved to {file_path}")
+# Merge data3 and data4 based on "Customer Pincode"
+compare_zone_left = pd.merge(data1, data2, on="Customer Pincode", how='left', suffixes=('_data1', '_data2'))
+# print(compare_zone_left)
+
+# Delete duplicates
+merged_data_no_duplicates = compare_zone_left.drop_duplicates(subset="Customer Pincode")
+print(merged_data_no_duplicates)
 
 
-#comparare with curier
-total_weight_per_order=total_weight_per_order.rename(columns={'ExternOrderNo':"Order ID"})
-print(total_weight_per_order)
+Compare_to_courier=pd.merge(Invoicer_data,merged_data_no_duplicates,on="Customer Pincode",how="inner")
+print(Compare_to_courier)
 
-data = pd.merge(total_weight_per_order, Invoicer_data, on="Order ID", how="inner")
-print(data)
+
+file_path= r"E:\Study sumit\Interviwe Assignments\CoinTab\Compare_to_courier.xlsx"
+Compare_to_courier.to_excel(file_path, index=False)
+print(f"Excel file saved to {file_path}")
+
+
