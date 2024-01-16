@@ -1,25 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="6584173e-cf1b-44d6-a7e6-d6bfc5122bff" name="Changes" comment="" />
+    <list default="true" id="6584173e-cf1b-44d6-a7e6-d6bfc5122bff" name="Changes" comment="output data1">
+      <change afterPath="$PROJECT_DIR$/new.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinTab.py" beforeDir="false" afterPath="$PROJECT_DIR$/CoinTab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinTabAssignment.py" beforeDir="false" afterPath="$PROJECT_DIR$/CoinTabAssignment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Output Data1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Output Data1.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dffinal.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/dffinal.xlsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 1
 }]]></component>
   <component name="ProjectId" id="2aycMgCJnWymJDlRnSDuL4eJQPt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.CoinTab.executor": "Run",
+    "Python.CoinTabAssignment.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.new.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RunManager">
@@ -62,7 +93,209 @@
       <option name="presentableId" value="Default" />
       <updated>1705294212245</updated>
     </task>
+    <task id="LOCAL-00001" summary="test">
+      <option name="closed" value="true" />
+      <created>1705294646922</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705294646922</updated>
+    </task>
+    <task id="LOCAL-00002" summary="load data">
+      <option name="closed" value="true" />
+      <created>1705296989899</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705296989899</updated>
+    </task>
+    <task id="LOCAL-00003" summary="load data">
+      <option name="closed" value="true" />
+      <created>1705297060774</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705297060774</updated>
+    </task>
+    <task id="LOCAL-00004" summary="load data">
+      <option name="closed" value="true" />
+      <created>1705297215336</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705297215336</updated>
+    </task>
+    <task id="LOCAL-00005" summary="data cleaning and merge">
+      <option name="closed" value="true" />
+      <created>1705300010118</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705300010118</updated>
+    </task>
+    <task id="LOCAL-00006" summary="check data and merge">
+      <option name="closed" value="true" />
+      <created>1705300435305</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705300435305</updated>
+    </task>
+    <task id="LOCAL-00007" summary="total weight">
+      <option name="closed" value="true" />
+      <created>1705301912437</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705301912437</updated>
+    </task>
+    <task id="LOCAL-00008" summary="merge invoicer">
+      <option name="closed" value="true" />
+      <created>1705303476707</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1705303476707</updated>
+    </task>
+    <task id="LOCAL-00009" summary="merge Rates">
+      <option name="closed" value="true" />
+      <created>1705305382653</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705305382653</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Applicable Weight">
+      <option name="closed" value="true" />
+      <created>1705316067673</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1705316067673</updated>
+    </task>
+    <task id="LOCAL-00011" summary="charges">
+      <option name="closed" value="true" />
+      <created>1705319679402</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1705319679402</updated>
+    </task>
+    <task id="LOCAL-00012" summary="output1">
+      <option name="closed" value="true" />
+      <created>1705324235421</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1705324235421</updated>
+    </task>
+    <task id="LOCAL-00013" summary="output2">
+      <option name="closed" value="true" />
+      <created>1705325188674</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1705325188674</updated>
+    </task>
+    <task id="LOCAL-00014" summary="find out total weight">
+      <option name="closed" value="true" />
+      <created>1705382804319</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1705382804319</updated>
+    </task>
+    <task id="LOCAL-00015" summary="total_weight_per_order">
+      <option name="closed" value="true" />
+      <created>1705384784313</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1705384784313</updated>
+    </task>
+    <task id="LOCAL-00016" summary="comparare with curier">
+      <option name="closed" value="true" />
+      <created>1705385496774</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1705385496774</updated>
+    </task>
+    <task id="LOCAL-00017" summary=" compare zone with courier and company">
+      <option name="closed" value="true" />
+      <created>1705396160162</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1705396160162</updated>
+    </task>
+    <task id="LOCAL-00018" summary="campare and rename as per report">
+      <option name="closed" value="true" />
+      <created>1705397341528</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1705397341528</updated>
+    </task>
+    <task id="LOCAL-00019" summary="calculate applicable weight">
+      <option name="closed" value="true" />
+      <created>1705401232163</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1705401232163</updated>
+    </task>
+    <task id="LOCAL-00020" summary="calculate charges">
+      <option name="closed" value="true" />
+      <created>1705405005861</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1705405005861</updated>
+    </task>
+    <task id="LOCAL-00021" summary="output data1">
+      <option name="closed" value="true" />
+      <created>1705406688795</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1705406688795</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test" />
+    <MESSAGE value="load data" />
+    <MESSAGE value="data cleaning and merge" />
+    <MESSAGE value="check data and merge" />
+    <MESSAGE value="total weight" />
+    <MESSAGE value="merge invoicer" />
+    <MESSAGE value="merge Rates" />
+    <MESSAGE value="Applicable Weight" />
+    <MESSAGE value="charges" />
+    <MESSAGE value="output1" />
+    <MESSAGE value="output2" />
+    <MESSAGE value="find out total weight" />
+    <MESSAGE value="total_weight_per_order" />
+    <MESSAGE value="comparare with curier" />
+    <MESSAGE value=" compare zone with courier and company" />
+    <MESSAGE value="campare and rename as per report" />
+    <MESSAGE value="calculate applicable weight" />
+    <MESSAGE value="calculate charges" />
+    <MESSAGE value="output data1" />
+    <option name="LAST_COMMIT_MESSAGE" value="output data1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
