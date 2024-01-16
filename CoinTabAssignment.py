@@ -132,17 +132,36 @@ df_main=pd.merge(df_company,df_courier1,on="Order ID",how="inner")
 # print(df_main.dtypes)
 
 
-df_main=df_main.drop(columns="Customer Pincode")
+
+df_main = df_main[['Order ID', 'AWB Code', 'Total weight as per X (KG)','Weight slab as per X (KG)','Total weight as per Courier Company (KG)','Weight slab charged by Courier Company (KG)',"Customer Pincode",'Delivery Zone as per X','Delivery Zone charged by Courier Company','Billing Amount (Rs.)','Type of Shipment','Weight Slabs','Forward Fixed Charge','Forward Additional Weight Slab Charge','RTO Fixed Charge','RTO Additional Weight Slab Charge','count per X']]
+
+# print(df_main.dtypes)
+
+# file_path= r"E:\Study sumit\Interviwe Assignments\CoinTab\dfmain.xlsx"
+# df_main.to_excel(file_path, index=False)
+# print(f"Excel file saved to {file_path}")
+
+#clculate charges for per order
+def charges(type, fc, fac, rto, rtoa, count):
+    if count == 0 and type == "Forward charges":
+        charge = fc
+    elif count == 0 and type == "Forward and RTO charges":
+        charge = fc + rto
+    elif count > 0 and type == "Forward charges":
+        charge = fc + (count * fac)
+    elif count > 0 and type == "Forward and RTO charges":
+        charge = fc + (count * fac) + rto + (count * rtoa)
+    else:
+        charge = 0
+    return charge
+
+# Apply the charges function to create a new column
+df_main["Expected Charge as per X (Rs.)"] = df_main.apply(lambda row: charges(row["Type of Shipment"], row["Forward Fixed Charge"], row["Forward Additional Weight Slab Charge"], row["RTO Fixed Charge"], row["RTO Additional Weight Slab Charge"], row["count per X"]), axis=1)
+
 print(df_main.dtypes)
+df_final=df_main
 
-df_main = df_main[['Order ID', 'AWB Code', 'Total weight as per X (KG)','Weight slab as per X (KG)','Total weight as per Courier Company (KG)','Weight slab charged by Courier Company (KG)','Delivery Zone as per X','Delivery Zone charged by Courier Company','Billing Amount (Rs.)','Type of Shipment','Weight Slabs','Forward Fixed Charge','Forward Additional Weight Slab Charge','RTO Fixed Charge','RTO Additional Weight Slab Charge','count per X']]
-
-print(df_main.dtypes)
-
-file_path= r"E:\Study sumit\Interviwe Assignments\CoinTab\dfmain.xlsx"
-df_main.to_excel(file_path, index=False)
+file_path= r"dffinal.xlsx"
+df_final.to_excel(file_path, index=False)
 print(f"Excel file saved to {file_path}")
-
-
-
 
