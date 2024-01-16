@@ -162,26 +162,62 @@ df_main["Expected Charge as per X (Rs.)"] = df_main.apply(lambda row: charges(ro
 df_final=df_main
 # print(df_final)
 
-file_path= r"dffinal.xlsx"
-df_final.to_excel(file_path, index=False)
-print(f"Excel file saved to {file_path}")
 
 df_final.drop(columns=["Customer Pincode",'Type of Shipment','Weight Slabs','Forward Fixed Charge','Forward Additional Weight Slab Charge','RTO Fixed Charge','RTO Additional Weight Slab Charge','count per X'],inplace=True)
-print(df_final.dtypes)
+# print(df_final.dtypes)
 
 
 df_final = df_final[['Order ID', 'AWB Code', 'Total weight as per X (KG)','Weight slab as per X (KG)','Total weight as per Courier Company (KG)','Weight slab charged by Courier Company (KG)','Delivery Zone as per X','Delivery Zone charged by Courier Company','Expected Charge as per X (Rs.)','Billing Amount (Rs.)']]
-print(df_final.dtypes)
+# print(df_final.dtypes)
 
 df_final=df_final.rename(columns={"Billing Amount (Rs.)":"Charges Billed by Courier Company (Rs.)"})
-print(df_final.dtypes)
+# print(df_final.dtypes)
 
-df_final["Difference Between Expected and Billed  (Rs.)"]=df_final["Expected Charge as per X (Rs.)"]-df_final["Charges Billed by Courier Company (Rs.)"]
+
+df_final["Difference Between Expected and Billed  (Rs.)"]=df_final["Expected Charge as per X (Rs.)"].round(decimals=2) - df_final["Charges Billed by Courier Company (Rs.)"].round(decimals=2)
 print(df_final.dtypes)
 
 # print(df_final["Difference Between Expected and Billed  (Rs.)"])
 
+# print(df_final.tail(10)["Difference Between Expected and Billed  (Rs.)"])
 
-file_path= r"Output Data1.xlsx"
-df_final.to_excel(file_path, index=False)
+# file_path= r"Output Data1.xlsx"
+# df_final.to_excel(file_path, index=False)
+# print(f"Excel file saved to {file_path}")
+
+
+#output2
+
+count_correctly_charged = 0
+count_overcharged_charged = 0
+count_undercharged_count = 0
+total_correctly_amount = 0
+total_overcharging_amount = 0
+total_undercharging_amount = 0
+
+# Assuming df_final is your DataFrame
+for index, row in df_final.iterrows():
+    if row["Difference Between Expected and Billed  (Rs.)"] == 0:
+        count_correctly_charged += 1
+        total_correctly_amount += row["Difference Between Expected and Billed  (Rs.)"]
+    elif row["Difference Between Expected and Billed  (Rs.)"] < 0:
+        count_overcharged_charged += 1
+        total_overcharging_amount += row["Difference Between Expected and Billed  (Rs.)"]
+    elif row["Difference Between Expected and Billed  (Rs.)"] > 0:
+        count_undercharged_count += 1
+        total_undercharging_amount += row["Difference Between Expected and Billed  (Rs.)"]
+    else:
+        pass
+
+# Create a summary table
+summary_table = pd.DataFrame({
+    "  ":['Total Orders - Correctly Charged', 'Total Orders - Over Charged', 'Total Orders - Under Charged'],
+    'Count': [count_correctly_charged, count_overcharged_charged, count_undercharged_count],
+    'Amount (Rs.)': [total_correctly_amount, total_overcharging_amount, total_undercharging_amount]
+}, index=['Total Orders - Correctly Charged', 'Total Orders - Over Charged', 'Total Orders - Under Charged'])
+
+
+
+file_path= r"Output Data2.xlsx"
+summary_table.to_excel(file_path, index=False)
 print(f"Excel file saved to {file_path}")
