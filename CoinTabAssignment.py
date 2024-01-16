@@ -33,16 +33,20 @@ order_sku_data.drop(columns=['SKU', 'Order Qty', 'Weight (g)'],inplace=True)
 # print(order_sku_data)
 
 
-
-
 # Group by 'Order ID' and calculate the total weight
 total_weight_per_order = order_sku_data.groupby('ExternOrderNo')['Total Weight(kg)'].sum().reset_index()
 
+# print(total_weight_per_order)
+
+
+# file_path= r"E:\Study sumit\Interviwe Assignments\CoinTab\total_weight_per_order.xlsx"
+# total_weight_per_order.to_excel(file_path, index=False)
+# print(f"Excel file saved to {file_path}")
+
+
+#comparare with curier
+total_weight_per_order=total_weight_per_order.rename(columns={'ExternOrderNo':"Order ID"})
 print(total_weight_per_order)
 
-
-
-file_path= r"E:\Study sumit\Interviwe Assignments\CoinTab\total_weight_per_order.xlsx"
-total_weight_per_order.to_excel(file_path, index=False)
-print(f"Excel file saved to {file_path}")
-
+data = pd.merge(total_weight_per_order, Invoicer_data, on="Order ID", how="inner")
+print(data)
