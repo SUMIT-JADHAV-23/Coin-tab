@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6584173e-cf1b-44d6-a7e6-d6bfc5122bff" name="Changes" comment="output data1">
-      <change afterPath="$PROJECT_DIR$/new.py" afterDir="false" />
+    <list default="true" id="6584173e-cf1b-44d6-a7e6-d6bfc5122bff" name="Changes" comment="final Clean data">
+      <change afterPath="$PROJECT_DIR$/Redme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinTab.py" beforeDir="false" afterPath="$PROJECT_DIR$/CoinTab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoinTabAssignment.py" beforeDir="false" afterPath="$PROJECT_DIR$/CoinTabAssignment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Output Data1.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Output Data1.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dffinal.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/dffinal.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +39,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python.CoinTab.executor": "Run",
     "Python.CoinTabAssignment.executor": "Run",
     "Python.main.executor": "Run",
@@ -261,7 +258,31 @@
       <option name="project" value="LOCAL" />
       <updated>1705406688795</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="output data2">
+      <option name="closed" value="true" />
+      <created>1705409432859</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1705409432861</updated>
+    </task>
+    <task id="LOCAL-00023" summary="final Clean data">
+      <option name="closed" value="true" />
+      <created>1705409574825</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1705409574825</updated>
+    </task>
+    <task id="LOCAL-00024" summary="final Clean data">
+      <option name="closed" value="true" />
+      <created>1705409621073</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1705409621073</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -276,6 +297,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="test" />
     <MESSAGE value="load data" />
     <MESSAGE value="data cleaning and merge" />
@@ -295,17 +317,8 @@
     <MESSAGE value="calculate applicable weight" />
     <MESSAGE value="calculate charges" />
     <MESSAGE value="output data1" />
-    <option name="LAST_COMMIT_MESSAGE" value="output data1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="output data2" />
+    <MESSAGE value="final Clean data" />
+    <option name="LAST_COMMIT_MESSAGE" value="final Clean data" />
   </component>
 </project>
