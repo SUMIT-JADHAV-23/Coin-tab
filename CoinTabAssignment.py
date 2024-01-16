@@ -35,7 +35,6 @@ order_sku_data.drop(columns=['SKU', 'Order Qty', 'Weight (g)'],inplace=True)
 
 # Group by 'Order ID' and calculate the total weight
 total_weight_per_order = order_sku_data.groupby('ExternOrderNo')['Total Weight(kg)'].sum().reset_index()
-
 # print(total_weight_per_order)
 
 # compare zone with courier and company
@@ -48,15 +47,46 @@ compare_zone_left = pd.merge(data1, data2, on="Customer Pincode", how='left', su
 
 # Delete duplicates
 merged_data_no_duplicates = compare_zone_left.drop_duplicates(subset="Customer Pincode")
-print(merged_data_no_duplicates)
+# print(merged_data_no_duplicates)
 
 
 Compare_to_courier=pd.merge(Invoicer_data,merged_data_no_duplicates,on="Customer Pincode",how="inner")
-print(Compare_to_courier)
+# print(Compare_to_courier)
 
 
-file_path= r"E:\Study sumit\Interviwe Assignments\CoinTab\Compare_to_courier.xlsx"
-Compare_to_courier.to_excel(file_path, index=False)
-print(f"Excel file saved to {file_path}")
+# file_path= r"E:\Study sumit\Interviwe Assignments\CoinTab\Compare_to_courier.xlsx"
+# Compare_to_courier.to_excel(file_path, index=False)
+# print(f"Excel file saved to {file_path}")
+
+Compare_to_courier.drop(columns=['Warehouse Pincode_y', 'Warehouse Pincode_x'],inplace=True)
+# print(Compare_to_courier)
+
+Compare_to_courier=Compare_to_courier.rename(columns={"Zone_y": "Delivery Zone as per X"})
+# print(Compare_to_courier)
+
+Compare_to_courier=Compare_to_courier.rename(columns={"Zone_x": "Delivery Zone charged by Courier Company"})
+# print(Compare_to_courier)
+#
+# print(Compare_to_courier["Delivery Zone as per X"])
+# print(Compare_to_courier["Delivery Zone charged by Courier Company"])
+
+
+
+#comparare with curier
+total_weight_per_order=total_weight_per_order.rename(columns={'ExternOrderNo':"Order ID"})
+# print(total_weight_per_order)
+
+
+#campare company/courier oder id and weight c
+df1 = total_weight_per_order
+df2 = Compare_to_courier
+df = pd.merge(df1, df2, on="Order ID", how="inner")
+
+# print(df.dtypes)
+
+df=df.rename(columns={'Total Weight(kg)':'Total weight as per X (KG)'})
+df=df.rename(columns={'Charged Weight':"Total weight as per Courier Company (KG)"})
+
+print(df.dtypes)
 
 
